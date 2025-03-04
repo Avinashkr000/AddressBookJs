@@ -1,3 +1,4 @@
+
 class Contact {
   constructor(firstName, lastName, address, city, state, zip, phone, email) {
     this.firstName = firstName;
@@ -40,5 +41,15 @@ function addContact(contact) {
     addressBook.push(contact);
   } else {
     console.error("Invalid Contact");
+  }
+}
+function editContactByName(name, newContact) {
+  const index = addressBook.findIndex(
+    (contact) =>
+      contact.firstName === name.split(" ")[0] &&
+      contact.lastName === name.split(" ")[1]
+  );
+  if (index !== -1) {
+    addressBook[index] = newContact;
   }
 }

@@ -1,4 +1,3 @@
-
 class Contact {
   constructor(firstName, lastName, address, city, state, zip, phone, email) {
     this.firstName = firstName;
@@ -51,5 +50,15 @@ function editContactByName(name, newContact) {
   );
   if (index !== -1) {
     addressBook[index] = newContact;
+  }
+}
+function deleteContactByName(name) {
+  const index = addressBook.findIndex(
+    (contact) =>
+      contact.firstName === name.split(" ")[0] &&
+      contact.lastName === name.split(" ")[1]
+  );
+  if (index !== -1) {
+    addressBook.splice(index, 1);
   }
 }

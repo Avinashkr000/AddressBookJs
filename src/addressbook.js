@@ -1,5 +1,3 @@
-
-
 class Contact {
   constructor(firstName, lastName, address, city, state, zip, phone, email) {
     this.firstName = firstName;
@@ -67,4 +65,18 @@ function deleteContactByName(name) {
 function countContacts() {
   return addressBook.reduce((count) => count + 1, 0);
 }
+function isDuplicate(contact) {
+  return addressBook.some(
+    (existingContact) =>
+      existingContact.firstName === contact.firstName &&
+      existingContact.lastName === contact.lastName
+  );
+}
 
+function addUniqueContact(contact) {
+  if (!isDuplicate(contact)) {
+    addressBook.push(contact);
+  } else {
+    console.error("Duplicate Contact");
+  }
+}
